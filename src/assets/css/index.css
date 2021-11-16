@@ -6,10 +6,10 @@
   @apply pl-3 text-3xl mx-3 my-5 font-bold
 }
 .ProductCard{
-  @apply text-gray-700 text-blue-800 font-bold bg-white shadow-lg flex justify-center items-center px-4 py-2 cursor-pointer
+  @apply text-gray-700 text-blue-600 font-bold bg-white shadow-lg flex justify-center items-center px-4 py-2 cursor-pointer
 }
 .clear-font{
-  @apply float-right cursor-pointer text-blue-800 font-semibold
+  @apply float-right cursor-pointer text-blue-600 font-semibold
 }
 .HomeGrid{
   @apply grid grid-cols-5 sm:grid-cols-1 py-4 px-6 gap-4 justify-items-stretch h-48
@@ -57,15 +57,17 @@
 .tabel-header {
   @apply w-3/12 text-gray-400 bg-blue-50 border-b p-4;
 }
-
+.checkboxStyle{
+  @apply inline-flex items-center py-1
+}
 .table-data {
   @apply w-3/12 text-center break-words p-3 border-b;
 }
 .manuf-active {
-  @apply bg-green-600 text-white rounded-full py-0 px-4 w-8/12 block mx-auto cursor-default;
+  @apply bg-green-600 text-white rounded-full py-0 px-4 w-6/12 block mx-auto cursor-default;
 }
 .manuf-inactive {
-    @apply bg-red-600 text-white rounded-full py-0 px-4 w-8/12 block mx-auto cursor-default;
+    @apply bg-red-600 text-white rounded-full py-0 px-4 w-6/12 block mx-auto cursor-default;
   }
   .PaginationUl{
     @apply text-center bg-white p-3
@@ -80,6 +82,6 @@
     @apply float-right
   }
   .PaginationUl .selected{
-    @apply text-blue-800 border-b-2 border-blue-800
+    @apply text-blue-600 border-b-2 border-blue-600
   }
   

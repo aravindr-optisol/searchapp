@@ -105,7 +105,7 @@ const Result = (props) => {
                                 </div>
                                 <div className="mt-2">
                                     <div>
-                                        <label className="inline-flex items-center">
+                                        <label className="checkboxStyle">
                                             <input type="checkbox" className="form-checkbox" value="rubbersheet"
                                                 checked={checkInArray(productTypeArray, "rubbersheet")}
                                                 onChange={(event) => {
@@ -116,7 +116,7 @@ const Result = (props) => {
                                         </label>
                                     </div>
                                     <div>
-                                        <label className="inline-flex items-center">
+                                        <label className="checkboxStyle">
                                             <input type="checkbox" className="form-checkbox" value="flim"
                                                 checked={checkInArray(productTypeArray, "flim")}
                                                 onChange={(event) => {
@@ -127,7 +127,7 @@ const Result = (props) => {
                                         </label>
                                     </div>
                                     <div>
-                                        <label className="inline-flex items-center">
+                                        <label className="checkboxStyle">
                                             <input type="checkbox" className="form-checkbox" value="adhsives"
                                                 checked={checkInArray(productTypeArray, "adhsives")}
                                                 onChange={(event) => {
@@ -138,7 +138,7 @@ const Result = (props) => {
                                         </label>
                                     </div>
                                     <div>
-                                        <label className="inline-flex items-center">
+                                        <label className="checkboxStyle">
                                             <input type="checkbox" className="form-checkbox" value="foam"
                                                 checked={checkInArray(productTypeArray, "foam")}
                                                 onChange={(event) => {
@@ -161,7 +161,7 @@ const Result = (props) => {
                                 </div>
                                 <div className="mt-2">
                                     <div>
-                                        <label className="inline-flex items-center">
+                                        <label className="checkboxStyle">
                                             <input type="checkbox" className="form-checkbox" value="Active"
                                                 checked={checkInArray(productStatus, "Active")}
                                                 onChange={(event) => {
@@ -172,7 +172,7 @@ const Result = (props) => {
                                         </label>
                                     </div>
                                     <div>
-                                        <label className="inline-flex items-center">
+                                        <label className="checkboxStyle">
                                             <input type="checkbox" className="form-checkbox" value="Inactive"
                                                 checked={checkInArray(productStatus, "Inactive")}
                                                 onChange={(event) => {
@@ -193,9 +193,9 @@ const Result = (props) => {
                     <div className="w-9/12 sm:w-full h-10 inline-block p-2 inline-block">
                         {/* right side */}
                         {/* result count start */}
-                        <span className="font-bold"> Showing {props.Inventory.totEntry} results </span>
+                        <span className="font-bold py-2 px-4"> Showing {props.Inventory.totEntry} results </span>
                         <div className="float-right">
-                            <select className="py-2 px-4 bg-gray-100 w-auto outline-none" name="sortlist" onChange={handleSortMenu}>
+                            <select className="py-2 px-4 bg-gray-100 w-auto outline-none mb-4" name="sortlist" onChange={handleSortMenu}>
                                 <option className="bg-white" value="">Sort</option>
                                 <option value="mnaz">Material Name A-Z </option>
                                 <option value="mnza">Material Name Z-A </option>
@@ -229,7 +229,7 @@ const Result = (props) => {
                                         let { materialName, productType, description, makerStatus } = data
                                         return (
                                             <tr key={key}>
-                                                <td className="table-data font-bold text-blue-800">{materialName}</td>
+                                                <td className="table-data font-bold text-blue-600">{materialName}</td>
                                                 <td className="table-data font-light">{productType}</td>
                                                 <td className="table-data font-light">{description}</td>
                                                 <td className="table-data font-light">
