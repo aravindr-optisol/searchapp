@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Outlet, useNavigate, Link } from 'react-router-dom'
+import Logo from '../../assets/images/logo.png'
 const SearchSvg = () => {
     return (<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -14,11 +15,14 @@ const SearchBar = (props) => {
 
             <div class="mb-28 pb-24">
                 <div className="nav-bar">
-                    <div className="nav-bar-container">
-                        <Link to="/"><h1>LOGO</h1></Link>
+                    <div className="nav-bar-container float-left">
+                        <Link to="/">
+                         <img className="w-20 h-20 float-right" alt="logo" src={Logo}/>
+                            {/* <h1>LOGO</h1> */}
+                        </Link>
                     </div>
 
-                    <div className="search-box-container">
+                    <div className="search-box-container mt-3">
                         <div class="relative">
                             <input type="text" class="search-input-box" placeholder="Search anything..." onChange={(event) => { setSearchKey(event.target.value) }} />
                             <div class="absolute top-4 w-1/12 right-3 text-center">
@@ -28,6 +32,7 @@ const SearchBar = (props) => {
                                         Status: [],
                                         SearchKey:SearchKey
                                     }
+                                    props.setCallByCardType("")
                                     props.MakeApiCall(reqObj)
                                     naviGate(`/s`)
 

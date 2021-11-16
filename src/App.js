@@ -11,10 +11,12 @@ const App = () => {
   const MakeApiCall = (apiObj) => {
     /*
     {
-            ProductType:[],
-             Status:[],
-            SearchKey:props.SearchCall
-        }
+      ProductType:[],
+      Status:[],
+      SearchKey:"",
+      orderBy:mtaz,
+      ByPageNo:0
+    }
     */
     let makeSearch = FilterBy(apiObj)
     return setInventory(makeSearch)
@@ -30,6 +32,7 @@ const App = () => {
           <SearchBar
             setSearchCall={setSearchCall}
             MakeApiCall={MakeApiCall}
+            setCallByCardType={setCallByCardType}
           />
         } >
           <Route path="/" element={

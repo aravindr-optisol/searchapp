@@ -88,7 +88,7 @@ const Result = (props) => {
                 <p className="text-2xl font-bold">Result Page</p>
                 <div className="w-full h-auto inline-block p-3">
                     {/* left side */}
-                    <div className="w-2/12 h-auto inline-block p-4  sm:w-full float-left">
+                    <div className="w-3/12 h-auto inline-block p-4  sm:w-full float-left">
                         <div className="w-full bg-red h-auto inline-block p-2 bg-white p-2 rounded shadow-md">
                             {/* filter menu 1 start*/}
                             <div className="block">
@@ -184,7 +184,7 @@ const Result = (props) => {
 
 
 
-                    <div className="w-10/12 sm:w-full h-10 inline-block p-2 inline-block">
+                    <div className="w-19/12 sm:w-full h-10 inline-block p-2 inline-block">
                         {/* right side */}
                         {/* result count start */}
                         <span className="font-bold"> Showing {props.Inventory.totEntry} results </span>
@@ -203,9 +203,9 @@ const Result = (props) => {
                             <table className="w-full">
                                 <tr className="w-full">
                                     <th className="tabel-header">Material Name</th>
-                                    <th className="tabel-header">Product type</th>
+                                    <th className="tabel-header">Product Type</th>
                                     <th className="tabel-header">Description</th>
-                                    <th className="tabel-header">maker product status</th>
+                                    <th className="tabel-header">Maker Product Status</th>
                                 </tr>
                                 {
                                     props.Inventory.InventoryStatus.map((data, key) => {
@@ -231,7 +231,7 @@ const Result = (props) => {
                         <ReactPaginate
                             className="PaginationUl"
                             breakLabel="..."
-                            nextLabel="Next --->"
+                            nextLabel="Next >"
                             onPageChange={(event) => {
                                 let toApi = {
                                     ProductType: productTypeArray,
@@ -244,7 +244,7 @@ const Result = (props) => {
                             }}
                             pageRangeDisplayed={3}
                             pageCount={pageCount()}
-                            previousLabel="<--- Previous"
+                            previousLabel="< Previous"
                             renderOnZeroPageCount={null}
                         />
                         {/* Pagination end */}
