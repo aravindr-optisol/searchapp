@@ -16,7 +16,7 @@ const SearchBar = (props) => {
                 <div className="nav-bar">
                     <div className="nav-bar-container float-left w-2">
                         <Link to="/">
-                         <img className="w-24 h-24 float-left" alt="logo" src={Logo}/>
+                         <img className="w-40 float-left" alt="logo" src={Logo}/>
                             {/* <h1>LOGO</h1> */}
                         </Link>
                     </div>

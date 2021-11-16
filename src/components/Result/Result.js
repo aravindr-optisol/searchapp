@@ -82,6 +82,13 @@ const Result = (props) => {
         let r = Math.ceil(props.Inventory.totEntry / 10)
         return r
     }
+    const contentPrev=()=>{
+        return <span><svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> Previous</span>
+    }
+    const contentNext=()=>{
+        return <span>Next <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
+    }
+    
     if (Object.keys(props.Inventory).length > 0) {
         return (
             <div>
@@ -155,10 +162,10 @@ const Result = (props) => {
                                 <div className="mt-2">
                                     <div>
                                         <label className="inline-flex items-center">
-                                            <input type="checkbox" className="form-checkbox" value="active"
-                                                checked={checkInArray(productStatus, "active")}
+                                            <input type="checkbox" className="form-checkbox" value="Active"
+                                                checked={checkInArray(productStatus, "Active")}
                                                 onChange={(event) => {
-                                                    handleCheckBox(productStatus, event, "active", setproductStatus, "Status")
+                                                    handleCheckBox(productStatus, event, "Active", setproductStatus, "Status")
                                                 }}
                                             />
                                             <span className="ml-2">Active</span>
@@ -166,10 +173,10 @@ const Result = (props) => {
                                     </div>
                                     <div>
                                         <label className="inline-flex items-center">
-                                            <input type="checkbox" className="form-checkbox" value="inactive"
-                                                checked={checkInArray(productStatus, "inactive")}
+                                            <input type="checkbox" className="form-checkbox" value="Inactive"
+                                                checked={checkInArray(productStatus, "Inactive")}
                                                 onChange={(event) => {
-                                                    handleCheckBox(productStatus, event, "inactive", setproductStatus, "Status")
+                                                    handleCheckBox(productStatus, event, "Inactive", setproductStatus, "Status")
                                                 }}
                                             />
                                             <span className="ml-2">Inactive</span>
@@ -183,13 +190,13 @@ const Result = (props) => {
 
 
 
-                    <div className="w-19/12 sm:w-full h-10 inline-block p-2 inline-block">
+                    <div className="w-9/12 sm:w-full h-10 inline-block p-2 inline-block">
                         {/* right side */}
                         {/* result count start */}
                         <span className="font-bold"> Showing {props.Inventory.totEntry} results </span>
                         <div className="float-right">
-                            <select className="py-2 px-4 " name="sortlist" onChange={handleSortMenu}>
-                                <option value="">Sort</option>
+                            <select className="py-2 px-4 bg-gray-100 w-auto outline-none" name="sortlist" onChange={handleSortMenu}>
+                                <option className="bg-white" value="">Sort</option>
                                 <option value="mnaz">Material Name A-Z </option>
                                 <option value="mnza">Material Name Z-A </option>
                                 <option value="ptaz">Product Type A-Z</option>
@@ -200,28 +207,40 @@ const Result = (props) => {
                         {/* Tabel start*/}
                         <div className="overflow-x-auto bg-white w-full mt-5 w-full rounded-t-lg">
                             <table className="w-full">
-                                <tr className="w-full">
-                                    <th className="tabel-header">Material Name</th>
-                                    <th className="tabel-header">Product Type</th>
-                                    <th className="tabel-header">Description</th>
-                                    <th className="tabel-header">Maker Product Status</th>
+                            <thead>
+                                <tr className="w-full font-light">
+                                    <th className="tabel-header">
+                                    <span className="font-normal">Material Name</span>
+                                    </th>
+                                    <th className="tabel-header">
+                                    <span className="font-normal">Product Type</span>
+                                    </th>
+                                    <th className="tabel-header">
+                                    <span className="font-normal"> Description </span>
+                                    </th>
+                                    <th className="tabel-header">
+                                        <span className="font-normal">Maker Product Status</span>
+                                    </th>
                                 </tr>
+                                </thead>
+                                <tbody>
                                 {
                                     props.Inventory.InventoryStatus.map((data, key) => {
                                         let { materialName, productType, description, makerStatus } = data
                                         return (
                                             <tr key={key}>
-                                                <td className="table-data text-blue-600">{materialName}</td>
-                                                <td className="table-data">{productType}</td>
-                                                <td className="table-data">{description}</td>
-                                                <td className="table-data">
+                                                <td className="table-data font-bold text-blue-800">{materialName}</td>
+                                                <td className="table-data font-light">{productType}</td>
+                                                <td className="table-data font-light">{description}</td>
+                                                <td className="table-data font-light">
                                                     <span
-                                                        className={`${makerStatus === "active" ? "manuf-active" : "manuf-inactive"}`}>{makerStatus}</span>
+                                                        className={`${makerStatus === "Active" ? "manuf-active" : "manuf-inactive"}`}>{makerStatus}</span>
                                                 </td>
                                             </tr>
                                         )
                                     })
                                 }
+                                </tbody>
                             </table>
                         </div>
                         {/* Tabel end*/}
@@ -230,7 +249,7 @@ const Result = (props) => {
                         <ReactPaginate
                             className="PaginationUl"
                             breakLabel="..."
-                            nextLabel="Next >"
+                            nextLabel={contentNext()}
                             onPageChange={(event) => {
                                 let toApi = {
                                     ProductType: productTypeArray,
@@ -243,7 +262,7 @@ const Result = (props) => {
                             }}
                             pageRangeDisplayed={3}
                             pageCount={pageCount()}
-                            previousLabel="< Previous"
+                            previousLabel={contentPrev()}
                             renderOnZeroPageCount={null}
                         />
                         {/* Pagination end */}

@@ -17,7 +17,7 @@ const Home = (props) => {
                         Status: [],
                         SearchKey:"",
                         orderBy:"",
-                        orderBy:"mnza"
+                        orderBy:"mnaz"
                     })
 
                     naviGate(`/s?k=rubbersheet&ps=all&sort=asc`)
@@ -33,7 +33,7 @@ const Home = (props) => {
                         ProductType: ["flim"],
                         Status: [],
                         SearchKey:"",
-                        orderBy:"mnza"
+                        orderBy:"mnaz"
                     })
 
                     naviGate(`/s`) 
@@ -49,7 +49,7 @@ const Home = (props) => {
                         ProductType: ["adhsives"],
                         Status: [],
                         SearchKey:"",
-                        orderBy:"mnza"
+                        orderBy:"mnaz"
                     })
 
                     naviGate(`/s`)
@@ -64,7 +64,7 @@ const Home = (props) => {
                         ProductType: ["foam"],
                         Status: [],
                         SearchKey:"",
-                        orderBy:"mnza"
+                        orderBy:"mnaz"
                     })
 
                     naviGate(`/s`)
