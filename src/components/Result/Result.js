@@ -230,7 +230,7 @@ const Result = (props) => {
                                         return (
                                             <tr key={key}>
                                                 <td className="table-data font-bold text-blue-600">{materialName}</td>
-                                                <td className="table-data font-light">{productType}</td>
+                                                <td className="table-data font-light text-left">{productType}</td>
                                                 <td className="table-data font-light">{description}</td>
                                                 <td className="table-data font-light">
                                                     <span
