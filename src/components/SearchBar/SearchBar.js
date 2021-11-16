@@ -12,17 +12,15 @@ const SearchBar = (props) => {
 
     return (
         <div>
-
-            <div class="mb-28 pb-24">
+            <div class="mb-20 pb-20">
                 <div className="nav-bar">
-                    <div className="nav-bar-container float-left">
+                    <div className="nav-bar-container float-left w-2">
                         <Link to="/">
-                         <img className="w-20 h-20 float-right" alt="logo" src={Logo}/>
+                         <img className="w-24 h-24 float-left" alt="logo" src={Logo}/>
                             {/* <h1>LOGO</h1> */}
                         </Link>
                     </div>
-
-                    <div className="search-box-container mt-3">
+                    <div className="search-box-container mt-4">
                         <div class="relative">
                             <input type="text" class="search-input-box" placeholder="Search anything..." onChange={(event) => { setSearchKey(event.target.value) }} />
                             <div class="absolute top-4 w-1/12 right-3 text-center">
@@ -35,7 +33,6 @@ const SearchBar = (props) => {
                                     props.setCallByCardType("")
                                     props.MakeApiCall(reqObj)
                                     naviGate(`/s`)
-
                                 }}>
                                     <SearchSvg />
                                 </button>

@@ -85,16 +85,15 @@ const Result = (props) => {
     if (Object.keys(props.Inventory).length > 0) {
         return (
             <div>
-                <p className="text-2xl font-bold">Result Page</p>
-                <div className="w-full h-auto inline-block p-3">
+                <div className="mt-18 w-full h-auto inline-block p-3">
                     {/* left side */}
                     <div className="w-3/12 h-auto inline-block p-4  sm:w-full float-left">
                         <div className="w-full bg-red h-auto inline-block p-2 bg-white p-2 rounded shadow-md">
                             {/* filter menu 1 start*/}
                             <div className="block">
                                 <div>
-                                    <span className="text-gray-700">Product Types</span>
-                                    <span className="text-gray-700 float-right cursor-pointer" onClick={() => handleClear("ProductType")}>Clear</span>
+                                    <span className="text-gray-700 font-bold">Product Types</span>
+                                    <span className="clear-font" onClick={() => handleClear("ProductType")}>Clear</span>
 
                                 </div>
                                 <div className="mt-2">
@@ -150,8 +149,8 @@ const Result = (props) => {
                             {/* filter menu 2 start*/}
                             <div className="block">
                                 <div>
-                                    <span className="text-gray-700">Maker Product Status</span>
-                                    <span className="text-gray-700 float-right cursor-pointer" onClick={() => handleClear("Status")}>Clear</span>
+                                    <span className="text-gray-700 font-bold">Maker Product Status</span>
+                                    <span className="clear-font" onClick={() => handleClear("Status")}>Clear</span>
                                 </div>
                                 <div className="mt-2">
                                     <div>
@@ -199,7 +198,7 @@ const Result = (props) => {
                         </div>
                         {/* result count end */}
                         {/* Tabel start*/}
-                        <div className="overflow-x-auto bg-white w-full mt-5 w-full">
+                        <div className="overflow-x-auto bg-white w-full mt-5 w-full rounded-t-lg">
                             <table className="w-full">
                                 <tr className="w-full">
                                     <th className="tabel-header">Material Name</th>

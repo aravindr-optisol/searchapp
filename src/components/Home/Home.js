@@ -6,10 +6,10 @@ const Home = (props) => {
 
     return (
         <div>
-            <h1>Browse Product By Type</h1>
-            <div class="grid grid-cols-5 py-4 px-6 gap-4 justify-items-stretch h-48">
+            <p className="header-label">Browse Product by Type</p>
+            <div class="HomeGrid">
                 <div 
-                class="text-gray-700 font-bold bg-white shadow-lg flex justify-center items-center px-4 py-2 cursor-pointer"
+                class="ProductCard"
                 onClick={() => {       
                     props.setCallByCardType("rubbersheet")              
                     props.MakeApiCall({
@@ -22,9 +22,11 @@ const Home = (props) => {
 
                     naviGate(`/s?k=rubbersheet&ps=all&sort=asc`)
                  }}
-                >Rubber sheet</div>
+                >
+                    Rubber sheet
+                </div>
                 <div 
-                class="text-gray-700 font-bold bg-white shadow-lg flex justify-center items-center px-4 py-2 cursor-pointer"
+                class="ProductCard"
                 onClick={() => { 
                     props.setCallByCardType("flim")
                     props.MakeApiCall({
@@ -40,7 +42,7 @@ const Home = (props) => {
                     Flim
                 </div>
                 <div 
-                class="text-gray-700 font-bold bg-white shadow-lg flex justify-center items-center px-4 py-2 cursor-pointer"
+                class="ProductCard"
                 onClick={() => { 
                     props.setCallByCardType("adhsives")
                     props.MakeApiCall({
@@ -54,7 +56,7 @@ const Home = (props) => {
                  }}
                 >Adhsives</div>
                 <div 
-                class="text-gray-700 font-bold bg-white shadow-lg flex justify-center items-center px-4 py-2 cursor-pointer"
+                class="ProductCard"
                 onClick={() => { 
                     props.setCallByCardType("foam")
 
