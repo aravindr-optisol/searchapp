@@ -82,66 +82,64 @@ const Result = (props) => {
         let r = Math.ceil(props.Inventory.totEntry / 10)
         return r
     }
-
-    console.log(props.Inventory);
     if (Object.keys(props.Inventory).length > 0) {
         return (
             <div>
-                <h1>Result Page</h1>
-                <div className="w-full h-auto border-4 border-light-blue-500 border-opacity-100 inline-block">
+                <p className="text-2xl font-bold">Result Page</p>
+                <div className="w-full h-auto inline-block p-3">
                     {/* left side */}
-                    <div className="w-2/12 h-auto inline-block p-2 sm:w-full float-left">
+                    <div className="w-2/12 h-auto inline-block p-4  sm:w-full float-left">
                         <div className="w-full bg-red h-auto inline-block p-2 bg-white p-2 rounded shadow-md">
                             {/* filter menu 1 start*/}
-                            <div class="block">
+                            <div className="block">
                                 <div>
-                                    <span class="text-gray-700">Product Types</span>
-                                    <span class="text-gray-700 float-right cursor-pointer" onClick={() => handleClear("ProductType")}>Clear</span>
+                                    <span className="text-gray-700">Product Types</span>
+                                    <span className="text-gray-700 float-right cursor-pointer" onClick={() => handleClear("ProductType")}>Clear</span>
 
                                 </div>
-                                <div class="mt-2">
+                                <div className="mt-2">
                                     <div>
-                                        <label class="inline-flex items-center">
-                                            <input type="checkbox" class="form-checkbox" value="rubbersheet"
+                                        <label className="inline-flex items-center">
+                                            <input type="checkbox" className="form-checkbox" value="rubbersheet"
                                                 checked={checkInArray(productTypeArray, "rubbersheet")}
                                                 onChange={(event) => {
                                                     handleCheckBox(productTypeArray, event, "rubbersheet", setProductTypeArray, "ProductType")
                                                 }}
                                             />
-                                            <span class="ml-2">Rubber sheet</span>
+                                            <span className="ml-2">Rubber sheet</span>
                                         </label>
                                     </div>
                                     <div>
-                                        <label class="inline-flex items-center">
-                                            <input type="checkbox" class="form-checkbox" value="flim"
+                                        <label className="inline-flex items-center">
+                                            <input type="checkbox" className="form-checkbox" value="flim"
                                                 checked={checkInArray(productTypeArray, "flim")}
                                                 onChange={(event) => {
                                                     handleCheckBox(productTypeArray, event, "flim", setProductTypeArray, "ProductType")
                                                 }}
                                             />
-                                            <span class="ml-2">Flim</span>
+                                            <span className="ml-2">Flim</span>
                                         </label>
                                     </div>
                                     <div>
-                                        <label class="inline-flex items-center">
-                                            <input type="checkbox" class="form-checkbox" value="adhsives"
+                                        <label className="inline-flex items-center">
+                                            <input type="checkbox" className="form-checkbox" value="adhsives"
                                                 checked={checkInArray(productTypeArray, "adhsives")}
                                                 onChange={(event) => {
                                                     handleCheckBox(productTypeArray, event, "adhsives", setProductTypeArray, "ProductType")
                                                 }}
                                             />
-                                            <span class="ml-2">Adhsives</span>
+                                            <span className="ml-2">Adhsives</span>
                                         </label>
                                     </div>
                                     <div>
-                                        <label class="inline-flex items-center">
-                                            <input type="checkbox" class="form-checkbox" value="foam"
+                                        <label className="inline-flex items-center">
+                                            <input type="checkbox" className="form-checkbox" value="foam"
                                                 checked={checkInArray(productTypeArray, "foam")}
                                                 onChange={(event) => {
                                                     handleCheckBox(productTypeArray, event, "foam", setProductTypeArray, "ProductType")
                                                 }}
                                             />
-                                            <span class="ml-2">Foam</span>
+                                            <span className="ml-2">Foam</span>
                                         </label>
                                     </div>
                                 </div>
@@ -150,32 +148,32 @@ const Result = (props) => {
                         </div>
                         <div className="w-full bg-red h-auto mt-2 inline-block p-2 bg-white p-2 rounded shadow-md">
                             {/* filter menu 2 start*/}
-                            <div class="block">
+                            <div className="block">
                                 <div>
-                                    <span class="text-gray-700">Maker Product Status</span>
-                                    <span class="text-gray-700 float-right cursor-pointer" onClick={() => handleClear("Status")}>Clear</span>
+                                    <span className="text-gray-700">Maker Product Status</span>
+                                    <span className="text-gray-700 float-right cursor-pointer" onClick={() => handleClear("Status")}>Clear</span>
                                 </div>
-                                <div class="mt-2">
+                                <div className="mt-2">
                                     <div>
-                                        <label class="inline-flex items-center">
-                                            <input type="checkbox" class="form-checkbox" value="active"
+                                        <label className="inline-flex items-center">
+                                            <input type="checkbox" className="form-checkbox" value="active"
                                                 checked={checkInArray(productStatus, "active")}
                                                 onChange={(event) => {
                                                     handleCheckBox(productStatus, event, "active", setproductStatus, "Status")
                                                 }}
                                             />
-                                            <span class="ml-2">Active</span>
+                                            <span className="ml-2">Active</span>
                                         </label>
                                     </div>
                                     <div>
-                                        <label class="inline-flex items-center">
-                                            <input type="checkbox" class="form-checkbox" value="inactive"
+                                        <label className="inline-flex items-center">
+                                            <input type="checkbox" className="form-checkbox" value="inactive"
                                                 checked={checkInArray(productStatus, "inactive")}
                                                 onChange={(event) => {
                                                     handleCheckBox(productStatus, event, "inactive", setproductStatus, "Status")
                                                 }}
                                             />
-                                            <span class="ml-2">Inactive</span>
+                                            <span className="ml-2">Inactive</span>
                                         </label>
                                     </div>
                                 </div>
@@ -186,17 +184,17 @@ const Result = (props) => {
 
 
 
-                    <div className="w-10/12 sm:w-full bg-blue-500 h-10 inline-block p-2 inline-block">
+                    <div className="w-10/12 sm:w-full h-10 inline-block p-2 inline-block">
                         {/* right side */}
                         {/* result count start */}
-                        <span> Showing {props.Inventory.totEntry} results </span>
+                        <span className="font-bold"> Showing {props.Inventory.totEntry} results </span>
                         <div className="float-right">
-                            <select id="cars" name="carlist" form="carform" onChange={handleSortMenu}>
+                            <select className="py-2 px-4 " name="sortlist" onChange={handleSortMenu}>
                                 <option value="">Sort</option>
                                 <option value="mnaz">Material Name A-Z </option>
                                 <option value="mnza">Material Name Z-A </option>
                                 <option value="ptaz">Product Type A-Z</option>
-                                <option value="ptza">Product Type A-Z  </option>
+                                <option value="ptza">Product Type Z-A  </option>
                             </select>
                         </div>
                         {/* result count end */}
