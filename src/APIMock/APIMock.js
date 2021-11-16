@@ -1,4 +1,4 @@
-import { InventoryStatus } from './APIData'
+import { InventoryStatus } from '../APIData/APIData'
 let db = InventoryStatus
 
 export const FilterBy = ({ ProductType, Status, SearchKey, orderBy, ByPageNo }) => {

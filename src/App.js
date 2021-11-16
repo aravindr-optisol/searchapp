@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import SearchBar from "./components/SearchBar/SearchBar"
 import Home from "./components/Home/Home"
 import Result from "./components/Result/Result"
-import { FilterBy } from './APIMock'
+import { FilterBy } from './APIMock/APIMock'
 const App = () => {
   const [SearchCall, setSearchCall] = useState("")
   const [callByCardType, setCallByCardType] = useState("")
