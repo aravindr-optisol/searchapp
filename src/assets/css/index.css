@@ -6,7 +6,7 @@
   @apply pl-3 text-3xl mx-3 my-5 font-bold
 }
 .ProductCard{
-  @apply text-gray-700 text-blue-600 font-bold bg-white shadow-lg flex justify-center items-center px-4 py-2 cursor-pointer
+  @apply text-gray-700 text-blue-600 font-bold bg-white shadow-lg flex justify-center items-center px-4 py-4 h-48 cursor-pointer
 }
 .clear-font{
   @apply float-right cursor-pointer text-blue-600 font-semibold

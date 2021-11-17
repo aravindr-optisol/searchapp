@@ -21,12 +21,8 @@ const App = () => {
     let makeSearch = FilterBy(apiObj)
     return setInventory(makeSearch)
   }
-
-
-
-
   return (
-    <div className="min-h-screen w-4/5 ml-auto mr-auto">
+    <div className="min-h-screen bg-gray-100 w-4/5 ml-auto mr-auto">
       <Routes>
         <Route element={
           <SearchBar
@@ -41,7 +37,7 @@ const App = () => {
               setCallByCardType={setCallByCardType}
             />
           } />
-          <Route path="s" element={
+          <Route path="search" element={
             <Result
               MakeApiCall={MakeApiCall}
               callByCardType={callByCardType}

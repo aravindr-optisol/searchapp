@@ -8,15 +8,19 @@ export const FilterBy = ({ ProductType, Status, SearchKey, orderBy, ByPageNo }) 
 
 
   const FilterByPt = (db, type) => {
+    /* filter by product type */ 
     return db.filter(obj => obj.productType === type)
   }
 
   const FilterByMS = (db, status) => {
+    /* filter by material status */ 
+
     return db.filter(obj => obj.makerStatus === status)
   }
 
 
   const SearchBy = (searchKey) => {
+    /* search by key word */ 
     const matcher = new RegExp(`${searchKey.toUpperCase()}`, 'g');
     let result = db.filter(obj => obj.materialName.toUpperCase().match(matcher));
     return result

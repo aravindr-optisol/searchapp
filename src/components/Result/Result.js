@@ -1,12 +1,35 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from "react-router-dom";
 import ReactPaginate from 'react-paginate';
-
-
+import ResultBody from './ResultBody'
+import {CheckBox,DropDown} from "../../containers"
 const Result = (props) => {
-    const location = useLocation();
     const [productTypeArray, setProductTypeArray] = useState([])
     const [productStatus, setproductStatus] = useState([])
+    let DropDownContent= [
+        {
+            Name:"Sort",
+            value:"",
+
+        },
+        {
+            Name:"Material Name A-Z",
+            value:"mnaz",
+
+        },
+        {
+            Name:"Material Name Z-A",
+            value:"mnza",
+            
+        },
+        {
+            Name:"Product Type A-Z",
+            value:"ptaz",
+            
+        },
+        {
+            Name:"Product Type Z-A",
+            value:"ptza",
+        }]        
     useEffect(() => {
         if (props.callByCardType) {
             setProductTypeArray([props.callByCardType])
@@ -24,9 +47,7 @@ const Result = (props) => {
 
         }
         return props.MakeApiCall(toApi)
-
     }
-
     const handleCheckBox = (checkboxArray, event, checkboxvalue, sethooks, checkBoxName) => {
         let clone = [...checkboxArray]
 
@@ -53,7 +74,6 @@ const Result = (props) => {
         return props.MakeApiCall(toApi)
 
     }
-
     const handleClear = (clearCheckbox) => {
         let toApi = {
             ProductType: [],
@@ -72,9 +92,6 @@ const Result = (props) => {
 
         return props.MakeApiCall(toApi)
     }
-
-
-
     const checkInArray = (checkarray, value) => {
         return checkarray.includes(value) ? true : false
     }
@@ -83,12 +100,12 @@ const Result = (props) => {
         return r
     }
     const contentPrev=()=>{
-        return <span><svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> Previous</span>
+        return <span><svg className="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> Previous</span>
     }
     const contentNext=()=>{
-        return <span>Next <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
-    }
-    
+        return <span>Next <svg className="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
+    }    
+
     if (Object.keys(props.Inventory).length > 0) {
         return (
             <div>
@@ -101,53 +118,41 @@ const Result = (props) => {
                                 <div>
                                     <span className="text-gray-700 font-bold">Product Types</span>
                                     <span className="clear-font" onClick={() => handleClear("ProductType")}>Clear</span>
-
                                 </div>
                                 <div className="mt-2">
-                                    <div>
-                                        <label className="checkboxStyle">
-                                            <input type="checkbox" className="form-checkbox" value="rubbersheet"
-                                                checked={checkInArray(productTypeArray, "rubbersheet")}
-                                                onChange={(event) => {
-                                                    handleCheckBox(productTypeArray, event, "rubbersheet", setProductTypeArray, "ProductType")
-                                                }}
-                                            />
-                                            <span className="ml-2">Rubber sheet</span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label className="checkboxStyle">
-                                            <input type="checkbox" className="form-checkbox" value="flim"
-                                                checked={checkInArray(productTypeArray, "flim")}
-                                                onChange={(event) => {
-                                                    handleCheckBox(productTypeArray, event, "flim", setProductTypeArray, "ProductType")
-                                                }}
-                                            />
-                                            <span className="ml-2">Flim</span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label className="checkboxStyle">
-                                            <input type="checkbox" className="form-checkbox" value="adhsives"
-                                                checked={checkInArray(productTypeArray, "adhsives")}
-                                                onChange={(event) => {
-                                                    handleCheckBox(productTypeArray, event, "adhsives", setProductTypeArray, "ProductType")
-                                                }}
-                                            />
-                                            <span className="ml-2">Adhsives</span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label className="checkboxStyle">
-                                            <input type="checkbox" className="form-checkbox" value="foam"
-                                                checked={checkInArray(productTypeArray, "foam")}
-                                                onChange={(event) => {
-                                                    handleCheckBox(productTypeArray, event, "foam", setProductTypeArray, "ProductType")
-                                                }}
-                                            />
-                                            <span className="ml-2">Foam</span>
-                                        </label>
-                                    </div>
+
+                                <CheckBox 
+                                 checked={checkInArray(productTypeArray, "rubbersheet")}
+                                 onChange={(event) => {
+                                    handleCheckBox(productTypeArray, event, "rubbersheet", setProductTypeArray, "ProductType")
+                                }}
+                                CheckBoxValue="rubbersheet"
+                                CheckBoxLabel="Rubber Sheet"
+                                />
+                                <CheckBox 
+                                 checked={checkInArray(productTypeArray, "flim")}
+                                 onChange={(event) => {
+                                    handleCheckBox(productTypeArray, event, "flim", setProductTypeArray, "ProductType")
+                                }}
+                                CheckBoxValue="flim"
+                                CheckBoxLabel="Rubber Sheet"
+                                />
+                            <CheckBox 
+                                 checked={checkInArray(productTypeArray, "adhsives")}
+                                 onChange={(event) => {
+                                    handleCheckBox(productTypeArray, event, "adhsives", setProductTypeArray, "ProductType")
+                                }}
+                                CheckBoxValue="adhsives"
+                                CheckBoxLabel="Adhsives"
+                            />
+                            <CheckBox 
+                                 checked={checkInArray(productTypeArray, "foam")}
+                                 onChange={(event) => {
+                                    handleCheckBox(productTypeArray, event, "foam", setProductTypeArray, "ProductType")
+                                }}
+                                CheckBoxValue="foam"
+                                CheckBoxLabel="Foam"
+                            />                            
                                 </div>
                             </div>
                             {/* filter menu 1 end*/}
@@ -159,93 +164,41 @@ const Result = (props) => {
                                     <span className="text-gray-700 font-bold">Maker Product Status</span>
                                     <span className="clear-font" onClick={() => handleClear("Status")}>Clear</span>
                                 </div>
-                                <div className="mt-2">
-                                    <div>
-                                        <label className="checkboxStyle">
-                                            <input type="checkbox" className="form-checkbox" value="Active"
-                                                checked={checkInArray(productStatus, "Active")}
-                                                onChange={(event) => {
-                                                    handleCheckBox(productStatus, event, "Active", setproductStatus, "Status")
-                                                }}
-                                            />
-                                            <span className="ml-2">Active</span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label className="checkboxStyle">
-                                            <input type="checkbox" className="form-checkbox" value="Inactive"
-                                                checked={checkInArray(productStatus, "Inactive")}
-                                                onChange={(event) => {
-                                                    handleCheckBox(productStatus, event, "Inactive", setproductStatus, "Status")
-                                                }}
-                                            />
-                                            <span className="ml-2">Inactive</span>
-                                        </label>
-                                    </div>
-                                </div>
+                            <div className="mt-2">
+
+                            <CheckBox 
+                                checked={checkInArray(productStatus, "Active")}
+                                onChange={(event) => {handleCheckBox(productStatus, event, "Active", setproductStatus, "Status")}}
+                                CheckBoxValue="Active"
+                                CheckBoxLabel="Active"
+                            />
+
+                            <CheckBox 
+                                 checked={checkInArray(productStatus, "Inactive")}
+                                 onChange={(event) => {handleCheckBox(productStatus, event, "Inactive", setproductStatus, "Status")}}
+                                CheckBoxValue="Inactive"
+                                CheckBoxLabel="Inactive"
+                            />
+                            </div>
                             </div>
                             {/* filter menu 2 end*/}
                         </div>
                     </div>
-
-
-
                     <div className="w-9/12 sm:w-full h-10 inline-block p-2 inline-block">
                         {/* right side */}
                         {/* result count start */}
                         <span className="font-bold py-2 px-4"> Showing {props.Inventory.totEntry} results </span>
                         <div className="float-right">
-                            <select className="py-2 px-4 bg-gray-100 w-auto outline-none mb-4" name="sortlist" onChange={handleSortMenu}>
-                                <option className="bg-white" value="">Sort</option>
-                                <option value="mnaz">Material Name A-Z </option>
-                                <option value="mnza">Material Name Z-A </option>
-                                <option value="ptaz">Product Type A-Z</option>
-                                <option value="ptza">Product Type Z-A  </option>
-                            </select>
+                        <DropDown
+                         onChange={handleSortMenu}
+                         OptionArray={DropDownContent}
+                        />
                         </div>
                         {/* result count end */}
                         {/* Tabel start*/}
-                        <div className="overflow-x-auto bg-white w-full mt-5 w-full rounded-t-lg">
-                            <table className="w-full">
-                            <thead>
-                                <tr className="w-full font-light">
-                                    <th className="tabel-header">
-                                    <span className="font-normal">Material Name</span>
-                                    </th>
-                                    <th className="tabel-header">
-                                    <span className="font-normal">Product Type</span>
-                                    </th>
-                                    <th className="tabel-header">
-                                    <span className="font-normal"> Description </span>
-                                    </th>
-                                    <th className="tabel-header">
-                                        <span className="font-normal">Maker Product Status</span>
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {
-                                    props.Inventory.InventoryStatus.map((data, key) => {
-                                        let { materialName, productType, description, makerStatus } = data
-                                        return (
-                                            <tr key={key}>
-                                                <td className="table-data font-bold text-blue-600">{materialName}</td>
-                                                <td className="table-data font-light text-left">{productType}</td>
-                                                <td className="table-data font-light">{description}</td>
-                                                <td className="table-data font-light">
-                                                    <span
-                                                        className={`${makerStatus === "Active" ? "manuf-active" : "manuf-inactive"}`}>{makerStatus}</span>
-                                                </td>
-                                            </tr>
-                                        )
-                                    })
-                                }
-                                </tbody>
-                            </table>
-                        </div>
+                        <ResultBody inventory={props.Inventory.InventoryStatus}/>
                         {/* Tabel end*/}
                         {/* Pagination start */}
-
                         <ReactPaginate
                             className="PaginationUl"
                             breakLabel="..."
