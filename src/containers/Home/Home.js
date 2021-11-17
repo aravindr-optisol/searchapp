@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ProductCard } from '../../containers';
+import { ProductCard } from '../../components';
 const Home = (props) => {
     const naviGate = useNavigate();
 const CallByType=(type)=>{

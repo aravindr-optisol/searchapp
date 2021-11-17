@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate';
 import ResultBody from './ResultBody'
-import {CheckBox,DropDown} from "../../containers"
+import {CheckBox,DropDown} from "../../components"
 const Result = (props) => {
     const [productTypeArray, setProductTypeArray] = useState([])
     const [productStatus, setproductStatus] = useState([])
